@@ -14,11 +14,11 @@ services:
       # APP_URL must be set as the base URL you'd expect to access BookStack
       # on via the browser. The default shown here is what you might use if accessing
       # direct from the browser on the docker host, hence the use of the port as configured below.
-      - APP_URL=http://localhost:6875
+      - APP_URL=${APP_URL}
       # APP_KEY must be a unique key. Generate your own by running
       # docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
       # You should keep the "base64:" part for the option value.
-      - APP_KEY=base64:3qjlIoUX4Tw6fUQgZcxMbz6lb8+dAzqpvItqHvahW1c=
+      - APP_KEY=${APP_KEY}
 
       # The below database details are purposefully aligned with those
       # configuted for the "mariadb" service below:
@@ -26,7 +26,7 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=bookstack
       - DB_USERNAME=bookstack
-      - DB_PASSWORD=bookstack8432
+      - DB_PASSWORD=${DB_PASSWORD}
     volumes:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_app_data" folder in the same
@@ -54,10 +54,10 @@ services:
       # You may want to change the credentials used below,
       # but be aware the latter three options need to align
       # with the DB_* options for the BookStack container.
-      - MYSQL_ROOT_PASSWORD=mysupersecretrootpassword
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=bookstack
       - MYSQL_USER=bookstack
-      - MYSQL_PASSWORD=bookstack8432
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
       # You generally only ever need to map this one volume.
       # This maps it to a "bookstack_db_data" folder in the same
