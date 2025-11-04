@@ -8,8 +8,8 @@ services:
     image: lscr.io/linuxserver/bookstack:latest
     container_name: bookstack
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=1000
+      - PGID=1000
       - TZ=Asia/Bangkok
       # APP_URL must be set as the base URL you'd expect to access BookStack
       # on via the browser. The default shown here is what you might use if accessing
@@ -45,7 +45,7 @@ services:
     # You should update the version here to match the latest
     # main version of the linuxserver mariadb container version:
     # https://github.com/linuxserver/docker-mariadb/pkgs/container/mariadb/versions?filters%5Bversion_type%5D=tagged
-    image: lscr.io/linuxserver/mariadb:11.4
+    image: lscr.io/linuxserver/mariadb:latest
     container_name: mariadb
     environment:
       - PUID=0
